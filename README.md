@@ -1,1 +1,1 @@
-# django_mini_projects
+# bunch of django_mini_projects
