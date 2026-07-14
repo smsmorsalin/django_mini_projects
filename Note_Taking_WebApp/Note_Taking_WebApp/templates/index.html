@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Note Taking WebApp{% endblock %}
+{% block body %}
+    <h1>Welcome to the Note Taking WebApp</h1>
+    <p>This is a simple web application for taking notes.</p>
+{% for note in notes %}
+    <div class="note">
+        <h2>{{ note.title }}</h2>
+        <p>{{ note.content }}</p>
+    </div>
+{% endfor %}
+
+{% if notes|length == 0 %}
+    <p>No notes available.</p>
+{% endif %}
+
+{% if form %}
+    <h2>Add a New Note</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Note</button>
+    </form>
+{% endif %}
+{% endblock %}
