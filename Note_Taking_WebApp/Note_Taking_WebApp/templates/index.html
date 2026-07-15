@@ -2,7 +2,7 @@
 {% block title %}Note Taking WebApp{% endblock %}
 {% block body %}
     <h1>Welcome to the Note Taking WebApp</h1>
-    <p>This is a simple web application for taking notes.</p>
+    {% comment %} <a href="{% url 'users:logout' %}">Logout</a> {% endcomment %}
 {% for note in notes %}
     <div class="note">
         <h2>{{ note.title }}</h2>

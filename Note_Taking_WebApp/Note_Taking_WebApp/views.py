@@ -1,7 +1,11 @@
 from . import forms, services
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 def index(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('login'))  # Redirect to login page if user is not authenticated
     notes = services.get_all_notes()
     form = forms.NoteForm()
     if request.method == 'POST':
